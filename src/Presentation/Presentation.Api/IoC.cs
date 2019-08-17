@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Collections.Generic;
 using Infrastructure.Providers;
+using Domain.Interface.Infrastructure.Providers;
 
 namespace Presentation.Api
 {
@@ -21,6 +22,7 @@ namespace Presentation.Api
         public static void SetupIoCProviders(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<INumberIntoWordsProvider, NumberIntoWordsProvider>();
+            serviceCollection.AddTransient<IUserMenuProvider, UserMenuProvider>();
         }
 
         private static IEnumerable<System.Type> NumberIntoWordsInterfaces() => System.AppDomain.CurrentDomain.GetAssemblies()

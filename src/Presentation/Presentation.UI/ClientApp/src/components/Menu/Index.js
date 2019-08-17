@@ -5,15 +5,17 @@ import { MenuService } from './Services/MenuServices';
 export default function NavMenu() {
 
     const [states, setStates] = React.useState({
-        fullName: "",
-        userType: "",
-        menuList: []
+        menuList: []//["Home", "About"]
     });
 
     useEffect(() => {
         MenuService.fetchUserData()
             .then(d => {
-                setStates({ fullName: d.fullName, userType: d.userType, menuList: d.menuList });
+
+                if (d.status === 0) {
+                    setStates({ menuList: d.dataReturn.menuList });
+                }
+                
             })
             .catch(err => {
                 console.log(err);
@@ -23,8 +25,6 @@ export default function NavMenu() {
 
     return (
         <ButtonAppBar
-            fullName={states.fullName}
-            userType={states.userType}
             menuList={states.menuList}
         />
     );
