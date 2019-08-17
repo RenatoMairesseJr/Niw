@@ -9,7 +9,7 @@ namespace Infrastructure.Providers
         private readonly string[] Numbers = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
         private readonly string[] Tens = { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
 
-        public DTOSS.ApiReturn<DTOSS.NumberIntoWord> ReturnNumberIntoWords(string name, int inputNumber) {
+        public DTOSS.ApiReturn<DTOSS.NumberIntoWord> ReturnNumberIntoWords(string name, long inputNumber) {
             DTOSS.ApiReturn<DTOSS.NumberIntoWord> response = new DTOSS.ApiReturn<DTOSS.NumberIntoWord>(new DTOSS.NumberIntoWord
             {
                 Name = name,
@@ -27,7 +27,7 @@ namespace Infrastructure.Providers
                 response.Status = 1;
                 response.StatusDescription = "Invalid range, please enter a number between 0 and 1 million inclusively";
             } else {
-                response.DataReturn.NumberIntoWords = ConverNumberIntoWords(inputNumber);
+                response.DataReturn.NumberIntoWords = ConverNumberIntoWords((int)inputNumber);
             }
 
             return response;

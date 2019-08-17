@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Domain.Dtos;
 using Domain.Interfaces.Infrastructure.Providers;
+using System;
 
 namespace Presentation.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace Presentation.Api.Controllers
         public INumberIntoWordsProvider NumberIntoWordsProvider {get;}
         // GET api/values
         [HttpGet("{name}/{inputNumber}")]
-        public ActionResult<ApiReturn<NumberIntoWord>> RetunrNumberIntoWords([FromRoute] string name, [FromRoute] int inputNumber) =>
+        public ActionResult<ApiReturn<NumberIntoWord>> RetunrNumberIntoWords([FromRoute] string name, [FromRoute] long inputNumber) =>
             Ok(NumberIntoWordsProvider.ReturnNumberIntoWords(name, inputNumber));
     }
 }

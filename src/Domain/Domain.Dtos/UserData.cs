@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Domain.Dtos
 {
-    public class UserMenu
+    public class UserData
     {
+        public string Name { get; set; }
         public List<string> MenuList { get; set; }
     }
 }

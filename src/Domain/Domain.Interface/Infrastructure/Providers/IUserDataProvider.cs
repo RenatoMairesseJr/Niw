@@ -4,8 +4,8 @@ using Domain.Dtos;
 
 namespace Domain.Interface.Infrastructure.Providers
 {
-    public interface IUserMenuProvider
+    public interface IUserDataProvider
     {
-        ApiReturn<UserMenu> GetUserMenu();
+        ApiReturn<UserData> GetUserData();
     }
 }

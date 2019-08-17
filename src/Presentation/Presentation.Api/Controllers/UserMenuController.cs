@@ -8,15 +8,15 @@ namespace Presentation.Api.Controllers
     [ApiController]
     public class UserMenuController : ControllerBase
     {
-        public UserMenuController(IUserMenuProvider userMenuProvider)
+        public UserMenuController(IUserDataProvider userMenuProvider)
         {
             UserMenuProvider = userMenuProvider;
         }
 
-        public IUserMenuProvider UserMenuProvider { get; }
+        public IUserDataProvider UserMenuProvider { get; }
 
         // GET: api/UserGroups/5
-        [HttpGet("GetUserMenu")]
-        public ActionResult<ApiReturn<UserMenu>> GetUserMenu() => Ok(UserMenuProvider.GetUserMenu());
+        [HttpGet("GetUserData")]
+        public ActionResult<ApiReturn<UserData>> GetUserData() => Ok(UserMenuProvider.GetUserData());
     }
 }

@@ -5,19 +5,20 @@ using Domain.Dtos;
 
 namespace Infrastructure.Providers
 {
-    public class UserMenuProvider : IUserMenuProvider
+    public class UserDataProvider : IUserDataProvider
     {
-        public UserMenuProvider(ILogger<UserMenuProvider> logger)
+        public UserDataProvider(ILogger<UserDataProvider> logger)
         {
             Logger = logger;
         }
 
-        public ILogger<UserMenuProvider> Logger { get; }
+        public ILogger<UserDataProvider> Logger { get; }
 
-        public ApiReturn<UserMenu> GetUserMenu()
+        public ApiReturn<UserData> GetUserData()
         {
-            return new ApiReturn<UserMenu>(new UserMenu
+            return new ApiReturn<UserData>(new UserData
             {
+                Name =  "",
                 MenuList = new List<string>
                 {
                     "Home",

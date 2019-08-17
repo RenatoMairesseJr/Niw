@@ -5,7 +5,8 @@ import { MenuService } from './Services/MenuServices';
 export default function NavMenu() {
 
     const [states, setStates] = React.useState({
-        menuList: []//["Home", "About"]
+        menuList: [],
+        name: "'"
     });
 
     useEffect(() => {
@@ -13,19 +14,20 @@ export default function NavMenu() {
             .then(d => {
 
                 if (d.status === 0) {
-                    setStates({ menuList: d.dataReturn.menuList });
+                    setStates({ menuList: d.dataReturn.menuList, name: d.dataReturn.name });
                 }
                 
             })
             .catch(err => {
                 console.log(err);
-                setStates({ fullName: "Undefined" });
+                setStates({ name: "Undefined" });
             });
     }, [])
 
     return (
         <ButtonAppBar
             menuList={states.menuList}
+            name={states.name}
         />
     );
 }

@@ -22,7 +22,7 @@ namespace Presentation.Api
         public static void SetupIoCProviders(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<INumberIntoWordsProvider, NumberIntoWordsProvider>();
-            serviceCollection.AddTransient<IUserMenuProvider, UserMenuProvider>();
+            serviceCollection.AddTransient<IUserDataProvider, UserDataProvider>();
         }
 
         private static IEnumerable<System.Type> NumberIntoWordsInterfaces() => System.AppDomain.CurrentDomain.GetAssemblies()
