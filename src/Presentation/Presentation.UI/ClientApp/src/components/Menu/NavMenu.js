@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ButtonAppBar from './Components/AppBar';
+import ButtonAppBar from './Components/ButtonAppBar';
 import { MenuService } from './Services/MenuServices';
 
 export default function NavMenu() {
